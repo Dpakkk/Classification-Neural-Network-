@@ -13084,13 +13084,55 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Classification-Neural-Network">Classification-Neural-Network<a class="anchor-link" href="#Classification-Neural-Network">&#182;</a></h3><p>Questions:
+What is in the audio books dataset?
+what did you set out to do with the dataset?
+Did you achieve your initial goal?
+How did neural nettwork help with your task?
+why do you think neural nettwork help with your task?
+why do you think neural network was the best choice for this task?</p>
+<p>Data Description:
+This is a data of audio books store which only sells the audio book online. Each person in the data set has atleast purchased the audio once. Our objective is to predict whether the customer will buy the audiobook again or not. \
+The variables(column names) are
+ID : each customer has its own ID,\
+Book_length_min_overall: purchase: sum of length of purchase,\
+Book_length_min_average: average sum of length of purchase,\
+Price_overall: same like above two fields,\
+,Price_avg: same as above description,\
+Review: review given by customer or not if given 1 else 0,\
+Review on 10/10: if review is 1 then the reviewed value for review 0 we take an average of review value and we fill up the shell for empty review,\
+Minutes_listened: total listened minutes,\
+Completion:it is the ratio of total_minutes_listened and book length overall,\
+Support_request: it is whether user ask for support or not?,\
+Last_visited_minus_purchase_date: The bigger the difference the better the user's engagement,\
+and Targets: this is the targets(output in boolean value)\</p>
+<p>The input data represents the two year of people engagements. We are doing the supervised learning so we need targets; tagrets 1 if a person converted, targets 0 if a person didn't converted\
+Now the extra six months of data after the two  year period are also added to check if a user were converted or not. .i.e if a person bought another book or not. if they are converted then target is 1 else it is zero
+So now we are creating a ML algorith that can predict whether a customer will buy a book again or not.
+So this is a classification problem with two class won't buy and will buy represented by zeros and one\
+\
+Note: our inputs are all the variables of the csv file except for the first and the last column .i.e ID and Target\</p>
+<p>For data preprocessing we have used these three proccesses:</p>
+<ul>
+<li>Balance the dataset</li>
+<li>Divide the data set into training validation and test</li>
+<li>Saving the data in tensorflow friendly format</li>
+</ul>
+<p>we have used sklearn capabilities for standardizing the inputs by doing this we have gain the accuracy by 10%</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Extracting-data-from-csv">Extracting data from csv<a class="anchor-link" href="#Extracting-data-from-csv">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -13105,7 +13147,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># loading except for last and first variables</span>
@@ -13126,13 +13168,18 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Balancing-the-dataset">Balancing the dataset<a class="anchor-link" href="#Balancing-the-dataset">&#182;</a></h3>
+<h3 id="Balancing-the-dataset">Balancing the dataset<a class="anchor-link" href="#Balancing-the-dataset">&#182;</a></h3><p>Since there are many items for target = 0 so we need to balance the dataset</p>
+<ul>
+<li>We will count the number of targets that are 1s</li>
+<li>We will keep as many 0s as 1s(we have deleted others)</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">num_one_targets</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">targets_all</span><span class="p">))</span>
@@ -13304,6 +13351,11 @@ Only we need two play around with balancing section if we have more classes</p>
 <p>Input is given from csv file and we have two possible outcome .i.e target =1 or target = 0\
 we are assuming two hidden layer of 50 units on each hidden layer
 <img src="img.png" alt=""></p>
+<ul>
+<li>Figure Description
+The above figure is the network of our model. There are 10 inputs and only 2 outputs. \
+Input data is taken from csv file and for two output; one is for target 1 and second is for target 0. In the dataset 1 and 0 are the two types of tems for the classification.</li>
+</ul>
 
 </div>
 </div>
