@@ -10,4 +10,6 @@ and we create a Machine Learning Algorithm
 The above figure is the network of our model. There are 10 inputs and only 2 outputs. \
 Input data is taken from csv file and for two output; one is for target 1(one) and second is for target 0(zero). In the dataset 1 and 0 are the two types of tems for the classification.
 
+All the data and the process are completely described in the JupyterNotebook file.
+
 
