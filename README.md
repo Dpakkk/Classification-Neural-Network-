@@ -1,6 +1,6 @@
 ### Classification-Neural-Network
 The csv data is preprocessed completely using some of the some of the techhniques like Balancing, Scaling and shuffling the whole data set.\
-I've split the data into train, validation and test in the ration 0.8:0.1:0.1 \
+I've split the data into train, validation and test in the 80, 10, 10 percentage \
 These split data set are then converted and saved into tensor flow friendly extensions .i.e ".npz" extension .\
 and we create a Machine Learning Algorithm
 
